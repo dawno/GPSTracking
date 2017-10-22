@@ -25,8 +25,8 @@ public class GPSTracker extends Service implements LocationListener {
 
 
     Location location;
-    double latitude;
-    double longitude;
+   // double latitude;
+    double longitude, latitude;
 
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
@@ -36,8 +36,10 @@ public class GPSTracker extends Service implements LocationListener {
     protected LocationManager locationManager;
 
     public GPSTracker(Context context) {
+
         this.mContext = context;
         getLocation();
+
     }
     public Location getLocation() {
         try {
@@ -54,7 +56,8 @@ public class GPSTracker extends Service implements LocationListener {
 
             if (!isGPSEnabled && !isNetworkEnabled) {
 
-            } else {
+            }
+            else {
                 this.canGetLocation = true;
 
                 if (isNetworkEnabled) {

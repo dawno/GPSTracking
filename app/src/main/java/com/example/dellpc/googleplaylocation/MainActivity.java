@@ -11,7 +11,7 @@ import android.widget.ActionMenuView;
 //Main Activity
 
 public class MainActivity extends AppCompatActivity {
-    
+
     private TextView lblLocation;
     private Button btnShowLocation, btnStartLocationUpdates;
     @Override

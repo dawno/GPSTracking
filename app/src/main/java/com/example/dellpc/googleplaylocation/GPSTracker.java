@@ -9,8 +9,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.ActionMenuView;
 
-import java.security.Provider;
 
 
 public class GPSTracker extends Service implements LocationListener {
@@ -41,7 +41,9 @@ public class GPSTracker extends Service implements LocationListener {
         getLocation();
 
     }
-    public Location getLocation() {
+
+    public Location getLocation()
+    {
         try {
             locationManager = (LocationManager) mContext
                     .getSystemService(LOCATION_SERVICE);
@@ -134,7 +136,8 @@ public class GPSTracker extends Service implements LocationListener {
         return longitude;
     }
     @Override
-    public IBinder onBind(Intent arg0) {
+    public IBinder onBind(Intent arg0)
+    {
         return null;
     }
 }

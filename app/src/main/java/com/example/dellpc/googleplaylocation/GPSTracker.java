@@ -9,8 +9,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.ActionMenuView;
 
-import java.security.Provider;
 
 
 public class GPSTracker extends Service implements LocationListener {
@@ -25,21 +25,24 @@ public class GPSTracker extends Service implements LocationListener {
 
 
     Location location;
-    double latitude;
-    double longitude;
+   // double latitude;
+    double latitude, longitude;
 
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
 
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1;
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 1 * 60;
 
     protected LocationManager locationManager;
 
     public GPSTracker(Context context) {
+
         this.mContext = context;
-        getLocation();
+         getLocation();
+
     }
-    public Location getLocation() {
+    public Location getLocation()
+    {
         try {
             locationManager = (LocationManager) mContext
                     .getSystemService(LOCATION_SERVICE);
@@ -54,7 +57,8 @@ public class GPSTracker extends Service implements LocationListener {
 
             if (!isGPSEnabled && !isNetworkEnabled) {
 
-            } else {
+            }
+            else {
                 this.canGetLocation = true;
 
                 if (isNetworkEnabled) {
@@ -73,6 +77,7 @@ public class GPSTracker extends Service implements LocationListener {
                     }
                 }
                 if (isGPSEnabled) {
+
                     if (location == null) {
                         locationManager.requestLocationUpdates(
                                 LocationManager.GPS_PROVIDER,
@@ -90,7 +95,6 @@ public class GPSTracker extends Service implements LocationListener {
                     }
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,7 +135,9 @@ public class GPSTracker extends Service implements LocationListener {
         return longitude;
     }
     @Override
-    public IBinder onBind(Intent arg0) {
+    public IBinder onBind(Intent arg0)
+    {
         return null;
     }
+    
 }

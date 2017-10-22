@@ -1,18 +1,17 @@
 package com.example.dellpc.googleplaylocation;
 
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ActionMenuView;
 
-
+//Main Activity
 
 public class MainActivity extends AppCompatActivity {
-
-
-    // UI elements
+    
     private TextView lblLocation;
     private Button btnShowLocation, btnStartLocationUpdates;
     @Override

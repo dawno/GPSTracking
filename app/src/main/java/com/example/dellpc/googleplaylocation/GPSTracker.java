@@ -16,14 +16,13 @@ import java.security.Provider;
 public class GPSTracker extends Service implements LocationListener {
 
     private final Context mContext;
-
-
+    boolean canGetLocation = false;
+    boolean isNetworkEnabled = false;
     boolean isGPSEnabled = false;
 
 
-    boolean isNetworkEnabled = false;
 
-    boolean canGetLocation = false;
+
 
     Location location;
     double latitude;

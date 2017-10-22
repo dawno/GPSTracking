@@ -26,22 +26,21 @@ public class GPSTracker extends Service implements LocationListener {
 
     Location location;
    // double latitude;
-    double longitude, latitude;
+    double latitude, longitude;
 
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
 
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1;
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 1 * 60;
 
     protected LocationManager locationManager;
 
     public GPSTracker(Context context) {
 
         this.mContext = context;
-        getLocation();
+         getLocation();
 
     }
-
     public Location getLocation()
     {
         try {
@@ -78,6 +77,7 @@ public class GPSTracker extends Service implements LocationListener {
                     }
                 }
                 if (isGPSEnabled) {
+
                     if (location == null) {
                         locationManager.requestLocationUpdates(
                                 LocationManager.GPS_PROVIDER,
@@ -95,7 +95,6 @@ public class GPSTracker extends Service implements LocationListener {
                     }
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -140,4 +139,5 @@ public class GPSTracker extends Service implements LocationListener {
     {
         return null;
     }
+    
 }
